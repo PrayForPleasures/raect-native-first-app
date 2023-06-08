@@ -16,14 +16,21 @@ const Content = () => {
 		setDeal((deals) => {
 			return [
 				...deals,
-				{ text: text, key: Math.random().toString(36).substring(7) },
+				{
+					text: text,
+					date: new Date().toLocaleString(),
+					key: Math.random().toString(36).substring(7),
+				},
 			];
 		});
 	};
 
 	const deleteHandler = (key) => {
+		console.log("delete");
 		setDeal((prevState) => {
-			return prevState.filter((deal) => deal.key != key);
+			return prevState.filter((deal) => {
+				deal.key != key;
+			});
 		});
 	};
 
@@ -39,10 +46,13 @@ const Content = () => {
 							renderItem={({ item }) => (
 								<TouchableOpacity>
 									<View style={Styles.flexContentLines}>
-										<Text style={Styles.textContentLines}>{item.text}</Text>
+										<View style={Styles.textContentWidth}>
+											<Text style={Styles.textContentLines}>{item.text}</Text>
+											<Text style={Styles.textDateContent}>{item.date}</Text>
+										</View>
 										<TouchableOpacity
 											style={Styles.deleteButton}
-											onPress={deleteHandler}
+											onPress={() => deleteHandler(deal.key)}
 										>
 											<Text style={Styles.deleteButtonText}>&#10008;</Text>
 										</TouchableOpacity>

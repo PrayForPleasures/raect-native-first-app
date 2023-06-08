@@ -41,11 +41,11 @@ export const Styles = StyleSheet.create({
 		backgroundColor: "#7d7fff",
 	},
 	textContentLines: {
-		width: "76%",
 		backgroundColor: "#7d7fff",
 		color: "whitesmoke",
 		padding: 8,
 	},
+	textContentWidth: { width: "76%" },
 	flexContentLines: {
 		display: "flex",
 		flexDirection: "row",
@@ -95,5 +95,11 @@ export const Styles = StyleSheet.create({
 	},
 	buttonsAdds: {
 		width: "50%",
+	},
+	textDateContent: {
+		opacity: 0.5,
+		color: "whitesmoke",
+		paddingLeft: 8,
+		paddingBottom: 8,
 	},
 });
