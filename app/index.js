@@ -1,15 +1,19 @@
 import { useState } from "react";
-import { View, Text, ScrollView, SafeAreaView } from "react-native";
-import { Stack, useRouter } from "expo-router";
+import { Text, ScrollView, SafeAreaView, StatusBar } from "react-native";
 import { Styles } from "../styles/styles";
+import Header from "../components/Header";
+import Content from "../components/Content";
 
 const Home = () => {
-	const router = useRouter();
-
 	return (
-		<SafeAreaView style={Styles.header}>
-			<Text style={Styles.header__text}>Непутёвые заметки</Text>
-		</SafeAreaView>
+		<>
+			<SafeAreaView style={Styles.viewLine}></SafeAreaView>
+			<Header></Header>
+			<SafeAreaView style={Styles.viewLine}></SafeAreaView>
+			<Content></Content>
+			<SafeAreaView style={Styles.viewLine}></SafeAreaView>
+			<StatusBar theme="auto" />
+		</>
 	);
 };
 
